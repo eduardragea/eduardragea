@@ -6,7 +6,8 @@ import { layoutRow, marqueeLabel, marqueeSVG } from './marquee.mjs';
 import { pillarsLabel, pillarsSVG } from './pillars.mjs';
 import { readme } from './readme.mjs';
 import { distancesAlong, riverLines, smoothPath } from './river.mjs';
-import { teamSlices } from './team.mjs';
+import { readFileSync } from 'node:fs';
+import { nameplateWidth, sliceWidth, teamSlices } from './team.mjs';
 import { textPath, textWidth } from './text.mjs';
 import { still, THEMES } from './theme.mjs';
 
@@ -113,13 +114,26 @@ test('a marquee row loops without a jump: it slides by exactly one set', () => {
 test('each team slice shows one person, photo included, and is cut from the same scene', () => {
   const slices = teamSlices([member('Ada', 'mario.jpg'), member('Bob', 'eduard.jpg')], THEMES.dark);
   assert.equal(slices.length, 2);
-  assert.match(slices[0], /viewBox="0 0 423 240"/);
-  assert.match(slices[1], /viewBox="423 0 423 240"/);
+  assert.match(slices[0], /viewBox="0 0 423 214"/);
+  assert.match(slices[1], /viewBox="423 0 423 214"/);
   for (const s of slices) {
     assert.equal((s.match(/<image /g) ?? []).length, 1);
     assert.match(s, /data:image\/jpeg;base64,/);
     assert.doesNotMatch(s, /undefined|NaN/);
   }
+});
+
+test('someone without a photo gets a drawn placeholder instead', () => {
+  const [slice] = teamSlices([{ href: 'x', name: 'New intern', role: 'R' }], THEMES.light);
+  assert.doesNotMatch(slice, /<image |undefined|NaN/);
+  assert.match(slice, /id="sphere"/);
+  assert.match(slice, /aria-label="New intern, R"/);
+});
+
+test('everyone on the real team fits inside their own slice, and every photo exists', () => {
+  const team = JSON.parse(readFileSync(new URL('./team.json', import.meta.url), 'utf8'));
+  for (const member of team) assert.ok(nameplateWidth(member) < sliceWidth(team) - 4, member.name);
+  assert.equal(teamSlices(team, THEMES.dark).length, team.length);
 });
 
 test('readers who asked for no motion get a still copy of everything animated', () => {
