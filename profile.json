@@ -1,0 +1,85 @@
+{
+  "name": "Eduard",
+  "intro": [
+    "I'm co-founder and CTO of [WorkflowTime](https://workflowtime.com). I build AI systems that scale, keep your data safe and keep costs optimal, and I lead the teams building them.",
+    "We do research as well, so what we ship is based on what actually works today."
+  ],
+  "socials": {
+    "site": "workflowtime.com",
+    "linkedin": "eduard-ragea",
+    "instagram": "workflowtime"
+  },
+  "sections": {
+    "Experience": [
+      "Co-founder & CTO @ [WorkflowTime](https://workflowtime.com) (50+ case studies, 50K+ hours saved, €1M+ in cost savings)"
+    ],
+    "What we build": [
+      "AI systems and agents for freight logistics, insolvency law, EU funds, public tenders and venture capital",
+      "Mobile apps for beauty commerce, film streaming and a cleaning services marketplace, plus our own consumer apps",
+      "Platforms for wholesale (ERP with e-invoicing), sports events (e-commerce and POS), hotels and warehouses",
+      "Automation for dental clinics, solar lead routing, payroll and HR, restaurant marketing and news publishing"
+    ]
+  },
+  "cta": {
+    "label": "Book a free call",
+    "href": "https://cal.com/workflow-time/30min"
+  },
+  "pillars": [
+    {
+      "icon": "scale",
+      "title": "Systems that scale",
+      "detail": "Built to grow with usage"
+    },
+    {
+      "icon": "shield",
+      "title": "Your data stays safe",
+      "detail": "Under your control, end to end"
+    },
+    {
+      "icon": "cost",
+      "title": "Costs stay optimal",
+      "detail": "Right model, right infrastructure, no waste"
+    }
+  ],
+  "marquee": {
+    "rows": [
+      [
+        "Logistics",
+        "Legal",
+        "Healthcare",
+        "Venture capital",
+        "Public tenders",
+        "EU funds",
+        "Solar & energy",
+        "Wholesale",
+        "HR & payroll",
+        "Publishing",
+        "Beauty",
+        "Film streaming",
+        "Sports events",
+        "Hotels",
+        "Restaurants",
+        "Cleaning services"
+      ],
+      [
+        "Mobile apps",
+        "AI agents",
+        "Document automation",
+        "ERP systems",
+        "E-commerce",
+        "Point of sale",
+        "CRM integrations",
+        "WhatsApp bots",
+        "Data pipelines",
+        "Marketing analytics",
+        "MCP servers",
+        "Research"
+      ]
+    ],
+    "stack": [
+      "Azure",
+      "AWS",
+      "OpenAI"
+    ]
+  }
+}
